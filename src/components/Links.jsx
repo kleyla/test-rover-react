@@ -6,10 +6,18 @@ import {
   ListItemText,
   Divider,
   Icon,
+  makeStyles,
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import theme from "../themConfig";
 
+const styles = makeStyles((theme) => ({
+  icono: {
+    color: "white",
+  },
+}));
 const Links = () => {
+  const classes = styles();
   const links = [
     { icon: "home", text: "Home", route: "/" },
     { icon: "info", text: "About", route: "/about" },
@@ -23,7 +31,7 @@ const Links = () => {
           return (
             <ListItem button component={Link} to={link.route} key={index}>
               <ListItemIcon>
-                <Icon>{link.icon}</Icon>
+                <Icon className={classes.icono}>{link.icon}</Icon>
               </ListItemIcon>
               <ListItemText primary={link.text} />
             </ListItem>

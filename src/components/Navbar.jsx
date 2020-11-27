@@ -8,6 +8,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
+import purple from "@material-ui/core/colors/purple";
 
 const useStyles = makeStyles((theme) => ({
   offset: theme.mixins.toolbar,
@@ -16,6 +17,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("sm")]: {
       display: "none",
     },
+  },
+  titleLight: {
+    color: purple[200],
   },
   title: {
     flexGrow: 1,
@@ -32,10 +36,10 @@ const Navbar = (props) => {
   const classes = useStyles();
 
   return (
-    <AppBar className={classes.appBar}>
+    <AppBar className={classes.appBar} color="transparent">
       <Toolbar>
         <IconButton
-          color="inherit"
+          color="primary"
           aria-label="Menu"
           className={classes.menuButton}
           onClick={() => {
@@ -44,7 +48,8 @@ const Navbar = (props) => {
         >
           <MenuIcon />
         </IconButton>
-        <Typography variant="h6" className={classes.title}>
+        <Typography variant="h6" className={classes.title} color="primary">
+          <span className={classes.titleLight}>TEST</span>
           KAREN
         </Typography>
         <Button variant="text" color="inherit">

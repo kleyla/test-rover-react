@@ -9,6 +9,8 @@ const styles = makeStyles((theme) => ({
   },
   drawerPaper: {
     width: 240,
+    background: theme.palette.primary.main,
+    color: 'white'
   },
   toolbar: theme.mixins.toolbar,
   large: {
@@ -37,7 +39,6 @@ const Sidebar = (props) => {
           className={classes.large}
         />
       </Box>
-
       <Divider />
       <Links />
     </Drawer>

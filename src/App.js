@@ -1,25 +1,56 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { Hidden, ThemeProvider, makeStyles } from "@material-ui/core";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Sidebar from "./components/Sidebar";
+import theme from "./themConfig";
+import Home from "./views/Home";
+import About from "./views/About";
+import Maps from "./views/Maps";
 
-function App() {
+const estilos = makeStyles({
+  root: {
+    display: "flex",
+  },
+  toolbar: theme.mixins.toolbar,
+  content: {
+    flexGrow: 1,
+    backgroundColor: theme.palette.background.default,
+    padding: theme.spacing(3),
+    background: "red",
+  },
+});
+
+const App = () => {
+  const classes = estilos();
+  const [abrir, setAbrir] = useState(false);
+  const accionAbrir = () => {
+    setAbrir(!abrir);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <div className={classes.root}>
+          <Navbar accionAbrir={accionAbrir} />
+          <Hidden xsDown>
+            <Sidebar variant="permanent" open={true} />
+          </Hidden>
+          <Hidden smUp>
+            <Sidebar variant="temporary" open={abrir} onClose={accionAbrir} />
+          </Hidden>
+          <div className={classes.content}>
+            <div className={classes.toolbar}></div>
+            <Switch>
+              <Route path="/" exact component={Home} />
+              <Route path="/about" component={About} />
+              <Route path="/maps" component={Maps} />
+            </Switch>
+          </div>
+        </div>
+      </Router>
+    </ThemeProvider>
   );
-}
+};
 
 export default App;

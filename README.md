@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# Test rover
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Esta es una guía acerca del test que se realizaran para la selección del nuevo integrante de telemetria.
 
-## Available Scripts
+Como se había mencionado en las entrevistas, se tiene planeado realizar un test a cada uno de los postulantes, de manera que, nos demuestren sus habilidades, y asi poder seleccionar al ganador.
 
-In the project directory, you can run:
+El test es algo sencillo y básico respecto a las tecnologías consultadas en la entrevista.
 
-### `yarn start`
+### Se tomará en cuenta en general:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Buenas prácticas.
+- Código sencillo de leer (Esto quiere decir que no es necesario hacer maravillas de codigo).
+- Reusabilidad y capacidad para escalar el codigo.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+En cuanto al test, este se dividirá en dos partes; Frontend y "Backend".
 
-### `yarn test`
+## Test Frontend
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Los criterios a tomar en cuenta en frontend son:
 
-### `yarn build`
+- UX Design: Muy deseable, ya que necesitamos hacer una aplicacion eficaz y sencilla.
+- Uso de Hooks en React JS: Si no tiene conocimientos en ello puede realizar todo simplemente con componentes, pero este punto de uso de Hooks aumenta mucho su puntuacion, ya que se trabajará con ello.
+- Uso de Bootstrap o Material UI: Simplemente se pide algo sencillo, como un Navbar, tamaños de letra adecuados y poco mas, aunque se puntuará muy bien que la responsividad este bien implementada.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Entrega del trabajo:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+El trabajo se recibira mediante (Elegir solo uno):
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- El link al repositorio, ya sea en github, bitbucket, gitlab, etc (Esto queda a su criterio, con el que mas se sientan cómodos).
+- El link a la web subida en algun servicio de hosting, osea, la aplicacion web funcionando en internet.
 
-### `yarn eject`
+### Idea General:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Como usuario final, requiero una aplicacion web que me muestre distintas ubicaciones mediante mapas dinámicos, las distintas ubicaciones a mostrar son:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- La plaza 24 de Septiembre en Santa Cruz de la Sierra, Bolivia.
+- La plaza principal de la ciudad de La Paz.
+- Copacabana, La Paz.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### Detalles técnicos.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+En cuanto al barra de navegacion, requiero:
 
-## Learn More
+- Un navLink que me lleve al Home.
+- Un navLink que me lleve al About.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+En cuanto a pantallas, requiero:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Una pantalla principal que sera el Home y debe cumplir:
+  - Esta sera la pantalla donde se me redireccionara cuando en la barra de navegacion yo de click sobre el navLink Home.
+  - Que me muestre mediante cards las tres ubicaciones mencionadas anteriormente, y cuando yo de click sobre alguna de las cards, me lleve a su pantalla correspondiente con el mapa mostrando la ubicacion que la card muestra.
+  - Cada card en esta pantalla principal solo deberia mostrar un texto con la ubicacion la cual contiene.
+- Una pantalla acerca de, que sera el About y debe cumplir:
+  - Mostrar mas detalles acerca del postulante, este punto se va mas a presentarse mediante esta pantalla, aca se vera sus habilidades de hacer diseño y tratar de hacerlo lo mas "bonito" posible.
 
-### Code Splitting
+#### Recursos.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Para conseguir el uso de los mapas dinamicos ocupar la libreria leaflet y su integracion a React JS:
 
-### Analyzing the Bundle Size
+- https://leafletjs.com/
+- https://react-leaflet.js.org/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Como se habia mencionado, para el diseño, hacer uso de BootStrap o Material Design:
 
-### Making a Progressive Web App
+- Bootstrap: https://getbootstrap.com/
+- Material Design: https://material.io/design
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Puedes optar por cualquiera de las dos, te lo dejo a tu criterio, aunque te aconsejaria hacer uso de bootstrap ya que es algo mas rapido y sencillo de implementar y entender.
 
-### Advanced Configuration
+La importacion y el uso de las librerias, tambien te las dejo a tu criterio, puedes usar el gestor de paquetes npm, asi como tambien instalaciones CDN, sientete libre, al final lo que tomare en cuenta nada mas, es lo mencionado alla arriba, en "Los criterios a tomar en cuenta en frontend" y los criterios en general.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Tambien puedes hacer retrospectiva de tus trabajos realizados para sumar puntos, haznos llegar en una lista de los proyectos que tienes ya realizados y de ser posible, de acuerdo a la politica de privacidad de tu trabajo, pasar el codigo, cabe recalcar que solo tienes que pasar trabajos realizados en React JS.

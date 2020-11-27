@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Grid, Typography } from "@material-ui/core";
 import LitleBox from "../components/LitleBox";
 import theme from "../themConfig";
+import MapGeneral from "../components/MapGeneral";
 
 const Home = () => {
   const cajitas = [
@@ -51,6 +52,12 @@ const Home = () => {
             </Grid>
           );
         })}
+        <Grid item xs={12}>
+          <div>
+            <h6>MApa</h6>
+            <MapGeneral />
+          </div>
+        </Grid>
       </Grid>
     </div>
   );

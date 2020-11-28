@@ -1,8 +1,15 @@
 import React from "react";
-import { Avatar, Box, Divider, Drawer, makeStyles } from "@material-ui/core";
+import {
+  Avatar,
+  Box,
+  Divider,
+  Drawer,
+  makeStyles,
+  Typography,
+} from "@material-ui/core";
 import Links from "./Links";
 
-const styles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme) => ({
   drawer: {
     width: 240,
     flexShink: 0,
@@ -10,9 +17,14 @@ const styles = makeStyles((theme) => ({
   drawerPaper: {
     width: 240,
     background: theme.palette.primary.main,
-    color: 'white'
+    color: "white",
   },
-  toolbar: theme.mixins.toolbar,
+  toolbar: {
+    ...theme.mixins.toolbar,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
   large: {
     width: theme.spacing(22),
     height: theme.spacing(22),
@@ -20,7 +32,7 @@ const styles = makeStyles((theme) => ({
 }));
 
 const Sidebar = (props) => {
-  const classes = styles();
+  const classes = useStyles();
 
   return (
     <Drawer
@@ -31,7 +43,9 @@ const Sidebar = (props) => {
       open={props.open}
       onClose={props.onClose ? props.onClose : null}
     >
-      <div className={classes.toolbar}>fef</div>
+      <div className={classes.toolbar}>
+        <Typography variant="h5">KAREN</Typography>
+      </div>
       <Box display="flex" justifyContent="center" py={2}>
         <Avatar
           alt="Karen pic"

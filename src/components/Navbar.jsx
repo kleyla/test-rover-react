@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   offset: theme.mixins.toolbar,
   menuButton: {
     marginRight: theme.spacing(2),
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.up("md")]: {
       display: "none",
     },
   },
@@ -25,10 +25,11 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   appBar: {
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.up("md")]: {
       width: `calc(100% - ${240}px)`,
       marginLeft: 240,
     },
+    backgroundColor: theme.palette.common.white,
   },
 }));
 
@@ -36,7 +37,7 @@ const Navbar = (props) => {
   const classes = useStyles();
 
   return (
-    <AppBar className={classes.appBar} color="transparent">
+    <AppBar className={classes.appBar}>
       <Toolbar>
         <IconButton
           color="primary"
@@ -50,7 +51,7 @@ const Navbar = (props) => {
         </IconButton>
         <Typography variant="h6" className={classes.title} color="primary">
           <span className={classes.titleLight}>TEST</span>
-          KAREN
+          ROVER
         </Typography>
         <Button variant="text" color="inherit">
           Login

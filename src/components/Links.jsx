@@ -11,13 +11,13 @@ import {
 import { Link } from "react-router-dom";
 import theme from "../themConfig";
 
-const styles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme) => ({
   icono: {
     color: "white",
   },
 }));
 const Links = () => {
-  const classes = styles();
+  const classes = useStyles();
   const links = [
     { icon: "home", text: "Home", route: "/" },
     { icon: "info", text: "About", route: "/about" },

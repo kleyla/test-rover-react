@@ -8,7 +8,7 @@ import Home from "./views/Home";
 import About from "./views/About";
 import Maps from "./views/Maps";
 
-const estilos = makeStyles({
+const useStyles = makeStyles({
   root: {
     display: "flex",
   },
@@ -22,7 +22,7 @@ const estilos = makeStyles({
 });
 
 const App = () => {
-  const classes = estilos();
+  const classes = useStyles();
   const [abrir, setAbrir] = useState(false);
   const accionAbrir = () => {
     setAbrir(!abrir);
@@ -33,10 +33,10 @@ const App = () => {
       <Router>
         <div className={classes.root}>
           <Navbar accionAbrir={accionAbrir} />
-          <Hidden xsDown>
+          <Hidden smDown>
             <Sidebar variant="permanent" open={true} />
           </Hidden>
-          <Hidden smUp>
+          <Hidden mdUp>
             <Sidebar variant="temporary" open={abrir} onClose={accionAbrir} />
           </Hidden>
           <div className={classes.content}>

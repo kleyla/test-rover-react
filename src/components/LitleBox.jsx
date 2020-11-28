@@ -11,20 +11,20 @@ import {
   Typography,
 } from "@material-ui/core";
 
-const styles = makeStyles({
+const useStyles = makeStyles({
   litleBox: {
     backgroundColor: (props) => props.color,
     display: "inline-block",
-    padding: "16px",
+    padding: "8px",
   },
   icono: {
-    fontSize: "50px",
+    fontSize: "45px",
     color: "white",
   },
 });
 
 const LitleBox = (props) => {
-  const classes = styles(props);
+  const classes = useStyles(props);
 
   return (
     <Card>

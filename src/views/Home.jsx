@@ -1,10 +1,17 @@
 import React from "react";
-import { Box, Grid, Typography } from "@material-ui/core";
+import { Box, Grid, makeStyles, Typography } from "@material-ui/core";
 import LitleBox from "../components/LitleBox";
 import theme from "../themConfig";
 import MapGeneral from "../components/MapGeneral";
 
+const useStyles = makeStyles({
+  title: {
+    marginBottom: "16px",
+    marginTop: "8px",
+  },
+});
 const Home = () => {
+  const classes = useStyles();
   const cajitas = [
     {
       icon: "folder",
@@ -53,10 +60,12 @@ const Home = () => {
           );
         })}
         <Grid item xs={12}>
-          <div>
-            <h6>MApa</h6>
+          <Box>
+            <Typography variant="h6" className={classes.title}>
+              Map with react-leaflet
+            </Typography>
             <MapGeneral />
-          </div>
+          </Box>
         </Grid>
       </Grid>
     </div>

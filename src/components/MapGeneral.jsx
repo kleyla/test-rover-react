@@ -1,7 +1,7 @@
 import React from "react";
+import { makeStyles } from "@material-ui/core";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { makeStyles } from "@material-ui/core";
 import L from "leaflet";
 import "./MapGeneral.css";
 import icon from "leaflet/dist/images/marker-icon.png";

@@ -13,6 +13,7 @@ import {
 import React, { useState } from "react";
 import CloseIcon from "@material-ui/icons/Close";
 import { useForm } from "react-hook-form";
+import DraggableMap from "./DraggableMap";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,12 +37,16 @@ const useStyles = makeStyles((theme) => ({
 const Modal = (props) => {
   const classes = useStyles();
   const { register, handleSubmit, errors } = useForm();
+  const [coords, setCoords] = useState([-16.4957409, -68.1334839]);
   const onSubmitForm = (data, e) => {
-    // console.log(data);
-    const newPlace = { ...data, coords: [-16.4957409, -68.1334839] };
+    const newPlace = { ...data, coords: coords };
+    // console.log(newPlace);
     props.addPlace(newPlace);
     e.target.reset();
     props.handleClose();
+  };
+  const getCoords = (coords) => {
+    setCoords(coords);
   };
 
   return (
@@ -94,6 +99,9 @@ const Modal = (props) => {
                 multiline
                 rows={3}
               />
+            </div>
+            <div>
+              <DraggableMap getCoords={getCoords} />
             </div>
           </div>
         </DialogContent>

@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { Hidden, ThemeProvider, makeStyles } from "@material-ui/core";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  HashRouter,
+} from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import theme from "./themConfig";
@@ -30,7 +35,7 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Router>
+      <HashRouter basename="/">
         <div className={classes.root}>
           <Navbar accionAbrir={accionAbrir} />
           <Hidden smDown>
@@ -48,7 +53,7 @@ const App = () => {
             </Switch>
           </div>
         </div>
-      </Router>
+      </HashRouter>
     </ThemeProvider>
   );
 };

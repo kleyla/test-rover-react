@@ -10,7 +10,7 @@ const useStyles = makeStyles({
 });
 const Maps = () => {
   const classes = useStyles();
-  const places = [
+  const initPlaces = [
     {
       title: "Plaza 24 de Septiembre, Santa Cruz Bolivia",
       coords: [-17.7834936, -63.1820853],
@@ -37,6 +37,11 @@ const Maps = () => {
   const handleClose = () => {
     setOpenModal(false);
   };
+  const [places, setPlaces] = useState(initPlaces);
+  const addPlace = (newPlace) => {
+    console.log(newPlace);
+    setPlaces([...places, newPlace]);
+  };
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
@@ -51,13 +56,17 @@ const Maps = () => {
           >
             Add new place
           </Button>
-          <Modal open={openModal} handleClose={handleClose} />
+          <Modal
+            open={openModal}
+            handleClose={handleClose}
+            addPlace={addPlace}
+          />
         </Box>
       </Grid>
       {places.map((place, index) => {
         return (
           <Grid item xs={12} sm={6} md={4} key={index}>
-            <LitleMap place={place} />;
+            <LitleMap place={place} />
           </Grid>
         );
       })}

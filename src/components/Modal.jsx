@@ -6,10 +6,13 @@ import {
   DialogTitle,
   IconButton,
   makeStyles,
+  TextareaAutosize,
+  TextField,
   Typography,
 } from "@material-ui/core";
-import React from "react";
+import React, { useState } from "react";
 import CloseIcon from "@material-ui/icons/Close";
+import { useForm } from "react-hook-form";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,10 +25,24 @@ const useStyles = makeStyles((theme) => ({
     top: theme.spacing(1),
     color: theme.palette.grey[500],
   },
+  form: {
+    "& .MuiTextField-root": {
+      margin: theme.spacing(1),
+      width: 200,
+    },
+  },
 }));
 
 const Modal = (props) => {
   const classes = useStyles();
+  const { register, handleSubmit, errors } = useForm();
+  const onSubmitForm = (data, e) => {
+    // console.log(data);
+    const newPlace = { ...data, coords: [-16.4957409, -68.1334839] };
+    props.addPlace(newPlace);
+    e.target.reset();
+    props.handleClose();
+  };
 
   return (
     <Dialog
@@ -34,23 +51,58 @@ const Modal = (props) => {
       open={props.open}
     >
       <DialogTitle id="customized-dialog-title" className={classes.root}>
-        <Typography>Modal title</Typography>
+        <Typography>Add new place</Typography>
         <IconButton onClick={props.handleClose} className={classes.closeButton}>
           <CloseIcon />
         </IconButton>
       </DialogTitle>
-      <DialogContent dividers>
-        <Typography gutterBottom>
-          Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-          dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-          consectetur ac, vestibulum at eros.
-        </Typography>
-      </DialogContent>
-      <DialogActions>
-        <Button autoFocus onClick={props.handleClose} color="primary">
-          Save changes
-        </Button>
-      </DialogActions>
+      <form
+        noValidate
+        onSubmit={handleSubmit(onSubmitForm)}
+        className={classes.form}
+      >
+        <DialogContent dividers>
+          <div>
+            <div>
+              <TextField
+                id="title"
+                name="title"
+                label="Title"
+                variant="outlined"
+                error={errors.title ? true : false}
+                helperText={errors.title ? errors.title.message : ""}
+                inputRef={register({
+                  required: { value: true, message: "Campo requerido" },
+                })}
+                fullWidth
+              />
+            </div>
+            <div>
+              <TextField
+                id="description"
+                name="description"
+                label="Description"
+                variant="outlined"
+                error={errors.description ? true : false}
+                helperText={
+                  errors.description ? errors.description.message : ""
+                }
+                inputRef={register({
+                  required: { value: true, message: "Campo requerido" },
+                })}
+                fullWidth
+                multiline
+                rows={3}
+              />
+            </div>
+          </div>
+        </DialogContent>
+        <DialogActions>
+          <Button type="submit" autoFocus color="primary">
+            Save changes
+          </Button>
+        </DialogActions>
+      </form>
     </Dialog>
   );
 };

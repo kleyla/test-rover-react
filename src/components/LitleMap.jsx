@@ -5,6 +5,8 @@ import {
   CardActions,
   CardContent,
   Collapse,
+  Icon,
+  IconButton,
   makeStyles,
   Typography,
 } from "@material-ui/core";
@@ -32,13 +34,15 @@ const useStyles = makeStyles((theme) => ({
     flex: 1,
     justifyContent: "center",
   },
+  expand: {
+    marginLeft: "auto",
+  },
 }));
 
 const LitleMap = (props) => {
   const classes = useStyles();
   const [checked, setChecked] = React.useState(false);
   const handleChange = () => {
-    console.log("CLICK");
     setChecked(!checked);
   };
 
@@ -48,7 +52,9 @@ const LitleMap = (props) => {
         <CardContent>
           <Box>
             <Box mb={1}>
-              <Typography variant="h6" align="center">{props.place.title}</Typography>
+              <Typography variant="h6" align="center">
+                {props.place.title}
+              </Typography>
             </Box>
             <div className={classes.mapBox}>
               <MapContainer
@@ -74,10 +80,18 @@ const LitleMap = (props) => {
           </Box>
         </CardContent>
       </Collapse>
-      <CardActions>
-        <Button size="small" onClick={() => handleChange()}>
-          More
-        </Button>
+      <CardActions disableSpacing>
+        <IconButton
+          color="primary"
+          className={classes.expand}
+          onClick={() => handleChange()}
+        >
+          {checked ? (
+            <Icon>keyboard_arrow_up</Icon>
+          ) : (
+            <Icon>keyboard_arrow_down</Icon>
+          )}
+        </IconButton>
       </CardActions>
     </Card>
   );

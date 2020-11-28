@@ -1,5 +1,5 @@
 {
-  "homepage":"https://kleyla.github.io/test-rover-react",
+  "homepage": "https://kleyla.github.io/test-rover-react",
   "name": "test-rover",
   "version": "0.1.0",
   "private": true,
@@ -12,6 +12,7 @@
     "leaflet": "^1.7.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-hook-form": "^6.12.0",
     "react-leaflet": "^3.0.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",

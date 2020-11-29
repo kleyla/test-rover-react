@@ -61,21 +61,6 @@ const AboutMe = () => {
           About me...
         </Typography>
       </Grid>
-      <Grid item xs={12} sm={12} md={7} lg={6}>
-        {thingsAboutMe.map((item, index) => {
-          return (
-            <ListItem key={index}>
-              <ListItemAvatar>
-                <Avatar className={classes.number}>{index + 1}.</Avatar>
-              </ListItemAvatar>
-              <ListItemText
-                primary={item.title}
-                secondary={<Typography>{item.text}</Typography>}
-              ></ListItemText>
-            </ListItem>
-          );
-        })}
-      </Grid>
       <Grid item xs={12} sm={12} md={5} lg={6}>
         <GridList cellHeight="auto" className={classes.gridList}>
           <GridListTile cols={2}>
@@ -95,6 +80,21 @@ const AboutMe = () => {
             />
           </GridListTile>
         </GridList>
+      </Grid>
+      <Grid item xs={12} sm={12} md={7} lg={6}>
+        {thingsAboutMe.map((item, index) => {
+          return (
+            <ListItem key={index}>
+              <ListItemAvatar>
+                <Avatar className={classes.number}>{index + 1}.</Avatar>
+              </ListItemAvatar>
+              <ListItemText
+                primary={item.title}
+                secondary={<Typography>{item.text}</Typography>}
+              ></ListItemText>
+            </ListItem>
+          );
+        })}
       </Grid>
     </Grid>
   );

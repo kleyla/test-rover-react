@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  Box,
   Grid,
   GridList,
   GridListTile,
@@ -26,17 +27,17 @@ const useStyles = makeStyles((theme) => ({
 const Galeria = () => {
   const classes = useStyles();
   const pictures = [
-    {
-      src: "/flisol2019.jpg",
-      title: "FLISOL 2019, Santa Cruz, Bolivia",
-      by: "Someone",
-    },
+    { src: "/innovaw.jpg", title: "Innova Women 2019", by: "Someone" },
     {
       src: "/feriaLibro.jpg",
       title: "Feria del libro 2019, Santa Cruz, Bolivia",
       by: "Someone",
     },
-    { src: "/innovaw.jpg", title: "Innova Women 2019", by: "Someone" },
+    {
+      src: "/flisol2019.jpg",
+      title: "FLISOL 2019, Santa Cruz, Bolivia",
+      by: "Someone",
+    },
     {
       src: "/hackmeetinglp2019.jpg",
       title: "Hackmeeting 2019, La Paz, Bolivia",
@@ -45,16 +46,18 @@ const Galeria = () => {
   ];
 
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={12} >
-        <Typography variant="h5" color="primary" align="center">
-          Pictures
-        </Typography>
-      </Grid>
+    <Grid container spacing={1}>
       <Grid item xs={12}>
-        <GridList cellHeight="auto" cols={4} className={classes.gridList}>
-          {pictures.map((item, index) => {
-            return (
+        <Box my={2}>
+          <Typography variant="h5" color="primary" align="center">
+            Pictures
+          </Typography>
+        </Box>
+      </Grid>
+      {pictures.map((item, index) => {
+        return (
+          <Grid item xs={12} sm={6} md={3}>
+            <GridList cellHeight="auto" cols={1} className={classes.gridList}>
               <GridListTile cols={1} key={index}>
                 <img
                   src={`${process.env.PUBLIC_URL}/me/${item.src}`}
@@ -71,10 +74,10 @@ const Galeria = () => {
                   }
                 />
               </GridListTile>
-            );
-          })}
-        </GridList>
-      </Grid>
+            </GridList>
+          </Grid>
+        );
+      })}
     </Grid>
   );
 };

@@ -4,6 +4,7 @@ import {
   Box,
   Divider,
   Drawer,
+  Link,
   makeStyles,
   Typography,
 } from "@material-ui/core";
@@ -29,6 +30,9 @@ const useStyles = makeStyles((theme) => ({
     width: theme.spacing(22),
     height: theme.spacing(22),
   },
+  textWhite: {
+    color: "white",
+  },
 }));
 
 const Sidebar = (props) => {
@@ -44,7 +48,16 @@ const Sidebar = (props) => {
       onClose={props.onClose ? props.onClose : null}
     >
       <div className={classes.toolbar}>
-        <Typography variant="h5">KAREN</Typography>
+        <Typography variant="h5">
+          <Link
+            href="https://github.com/kleyla"
+            target="_blank"
+            rel="noreferrer"
+            className={classes.textWhite}
+          >
+            KAREN
+          </Link>
+        </Typography>
       </div>
       <Box display="flex" justifyContent="center" py={2}>
         <Avatar

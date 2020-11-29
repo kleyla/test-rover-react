@@ -8,10 +8,11 @@ import {
   Toolbar,
   Typography,
   withStyles,
-  Badge
+  Badge,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import purple from "@material-ui/core/colors/purple";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   offset: theme.mixins.toolbar,
@@ -26,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    textDecoration: "none",
   },
   appBar: {
     [theme.breakpoints.up("md")]: {
@@ -60,10 +62,12 @@ const Navbar = (props) => {
         >
           <MenuIcon />
         </IconButton>
-        <Typography variant="h6" className={classes.title} color="primary">
-          <span className={classes.titleLight}>TEST</span>
-          ROVER
-        </Typography>
+        <Link to="/" className={classes.title}>
+          <Typography variant="h6" color="primary">
+            <span className={classes.titleLight}>TEST</span>
+            ROVER
+          </Typography>
+        </Link>
         <IconButton aria-label="button">
           <StyledBadge badgeContent={4} color="secondary">
             <Icon color="primary">notifications</Icon>

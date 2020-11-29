@@ -44,6 +44,7 @@ const Modal = (props) => {
     props.addPlace(newPlace);
     e.target.reset();
     props.handleClose();
+    props.handleClickSnackbar();
   };
   const getCoords = (coords) => {
     setCoords(coords);

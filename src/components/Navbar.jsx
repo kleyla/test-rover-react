@@ -69,7 +69,7 @@ const Navbar = (props) => {
           </Typography>
         </Link>
         <IconButton aria-label="button">
-          <StyledBadge badgeContent={4} color="secondary">
+          <StyledBadge badgeContent={4} color="error">
             <Icon color="primary">notifications</Icon>
           </StyledBadge>
         </IconButton>

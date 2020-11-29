@@ -12,6 +12,7 @@ import theme from "./themConfig";
 import Home from "./views/Home";
 import About from "./views/About";
 import Maps from "./views/Maps";
+import Mapa from "./views/Mapa";
 
 const useStyles = makeStyles({
   root: {
@@ -50,6 +51,7 @@ const App = () => {
               <Route path="/" exact component={Home} />
               <Route path="/about" component={About} />
               <Route path="/maps" component={Maps} />
+              <Route path="/map/:title/:lat/:lng" component={Mapa} />
             </Switch>
           </div>
         </div>

@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/test-rover-react/static/css/main.bbb6bf82.chunk.css",
-    "main.js": "/test-rover-react/static/js/main.5be3fdca.chunk.js",
-    "main.js.map": "/test-rover-react/static/js/main.5be3fdca.chunk.js.map",
-    "runtime-main.js": "/test-rover-react/static/js/runtime-main.730d4a98.js",
-    "runtime-main.js.map": "/test-rover-react/static/js/runtime-main.730d4a98.js.map",
+    "main.css": "/test-rover-react/static/css/main.77cc1c30.chunk.css",
+    "main.js": "/test-rover-react/static/js/main.8ac951e5.chunk.js",
+    "main.js.map": "/test-rover-react/static/js/main.8ac951e5.chunk.js.map",
+    "runtime-main.js": "/test-rover-react/static/js/runtime-main.964165fe.js",
+    "runtime-main.js.map": "/test-rover-react/static/js/runtime-main.964165fe.js.map",
     "static/css/2.b4ebbe46.chunk.css": "/test-rover-react/static/css/2.b4ebbe46.chunk.css",
-    "static/js/2.cf188936.chunk.js": "/test-rover-react/static/js/2.cf188936.chunk.js",
-    "static/js/2.cf188936.chunk.js.map": "/test-rover-react/static/js/2.cf188936.chunk.js.map",
-    "static/js/3.a02d1afe.chunk.js": "/test-rover-react/static/js/3.a02d1afe.chunk.js",
-    "static/js/3.a02d1afe.chunk.js.map": "/test-rover-react/static/js/3.a02d1afe.chunk.js.map",
+    "static/js/2.163ebc16.chunk.js": "/test-rover-react/static/js/2.163ebc16.chunk.js",
+    "static/js/2.163ebc16.chunk.js.map": "/test-rover-react/static/js/2.163ebc16.chunk.js.map",
+    "static/js/3.6bc53d85.chunk.js": "/test-rover-react/static/js/3.6bc53d85.chunk.js",
+    "static/js/3.6bc53d85.chunk.js.map": "/test-rover-react/static/js/3.6bc53d85.chunk.js.map",
     "index.html": "/test-rover-react/index.html",
     "static/css/2.b4ebbe46.chunk.css.map": "/test-rover-react/static/css/2.b4ebbe46.chunk.css.map",
-    "static/css/main.bbb6bf82.chunk.css.map": "/test-rover-react/static/css/main.bbb6bf82.chunk.css.map",
-    "static/js/2.cf188936.chunk.js.LICENSE.txt": "/test-rover-react/static/js/2.cf188936.chunk.js.LICENSE.txt"
+    "static/css/main.77cc1c30.chunk.css.map": "/test-rover-react/static/css/main.77cc1c30.chunk.css.map",
+    "static/js/2.163ebc16.chunk.js.LICENSE.txt": "/test-rover-react/static/js/2.163ebc16.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.730d4a98.js",
+    "static/js/runtime-main.964165fe.js",
     "static/css/2.b4ebbe46.chunk.css",
-    "static/js/2.cf188936.chunk.js",
-    "static/css/main.bbb6bf82.chunk.css",
-    "static/js/main.5be3fdca.chunk.js"
+    "static/js/2.163ebc16.chunk.js",
+    "static/css/main.77cc1c30.chunk.css",
+    "static/js/main.8ac951e5.chunk.js"
   ]
 }

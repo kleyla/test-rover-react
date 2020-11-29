@@ -6,7 +6,6 @@ import {
   DialogTitle,
   IconButton,
   makeStyles,
-  TextareaAutosize,
   TextField,
   Typography,
 } from "@material-ui/core";
@@ -14,6 +13,7 @@ import React, { useState } from "react";
 import CloseIcon from "@material-ui/icons/Close";
 import { useForm } from "react-hook-form";
 import DraggableMap from "./DraggableMap";
+import "./Modal.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -54,6 +54,7 @@ const Modal = (props) => {
       onClose={props.handleClose}
       aria-labelledby="customized-dialog-title"
       open={props.open}
+      fullWidth
     >
       <DialogTitle id="customized-dialog-title" className={classes.root}>
         <Typography>Add new place</Typography>
@@ -79,7 +80,7 @@ const Modal = (props) => {
                 inputRef={register({
                   required: { value: true, message: "Campo requerido" },
                 })}
-                fullWidth
+                className="fullWidth"
               />
             </div>
             <div>
@@ -95,7 +96,7 @@ const Modal = (props) => {
                 inputRef={register({
                   required: { value: true, message: "Campo requerido" },
                 })}
-                fullWidth
+                className="fullWidth"
                 multiline
                 rows={3}
               />

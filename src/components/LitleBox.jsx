@@ -44,7 +44,7 @@ const LitleBox = (props) => {
         </Box>
       </CardContent>
       <CardActions>
-        <Button size="small">More</Button>
+        <Button size="small" color="primary">More</Button>
       </CardActions>
     </Card>
   );

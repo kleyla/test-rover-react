@@ -90,7 +90,9 @@ const AboutMe = () => {
               </ListItemAvatar>
               <ListItemText
                 primary={item.title}
-                secondary={<Typography>{item.text}</Typography>}
+                secondary={
+                  <Typography variant="subtitle2">{item.text}</Typography>
+                }
               ></ListItemText>
             </ListItem>
           );

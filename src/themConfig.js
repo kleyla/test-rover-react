@@ -18,6 +18,12 @@ const theme = createMuiTheme({
   typography: {
     subtitle1: {
       color: "#9e9e9e",
+      fontWeight: "500",
+    },
+    subtitle2: {
+      color: "#757575",
+      fontSize: "1rem",
+      fontWeight: "400",
     },
   },
 });

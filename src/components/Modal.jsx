@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
 const Modal = (props) => {
   const classes = useStyles();
   const { register, handleSubmit, errors } = useForm();
-  const [coords, setCoords] = useState([-16.4957409, -68.1334839]);
+  const [coords, setCoords] = useState([-17.7834936, -63.1820853]);
   const onSubmitForm = (data, e) => {
     const newPlace = { ...data, coords: coords };
     // console.log(newPlace);

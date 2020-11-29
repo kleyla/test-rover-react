@@ -56,9 +56,9 @@ const Galeria = () => {
       </Grid>
       {pictures.map((item, index) => {
         return (
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} sm={6} md={3} key={index}>
             <GridList cellHeight="auto" cols={1} className={classes.gridList}>
-              <GridListTile cols={1} key={index}>
+              <GridListTile cols={1}>
                 <img
                   src={`${process.env.PUBLIC_URL}/me/${item.src}`}
                   alt="girls"

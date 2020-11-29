@@ -15,7 +15,7 @@ const About = () => {
       <AboutMe />
       <br />
       <Galeria />
-      <Box my={4}>
+      <Box mt={4} mb={3}>
         <Divider />
         <Footer />
       </Box>

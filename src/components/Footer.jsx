@@ -1,4 +1,5 @@
 import {
+  Box,
   Grid,
   Link,
   List,
@@ -71,9 +72,11 @@ const Footer = () => {
         );
       })}
       <Grid item xs={12}>
-        <Typography variant="h6" align="center">
-          &copy; Karen Rodriguez
-        </Typography>
+        <Box mt={2}>
+          <Typography variant="h6" align="center">
+            &copy; Karen Rodriguez
+          </Typography>
+        </Box>
       </Grid>
     </Grid>
   );

@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   Button,
   Dialog,
@@ -5,39 +6,21 @@ import {
   DialogContent,
   DialogTitle,
   IconButton,
-  makeStyles,
   TextField,
   Typography,
 } from "@material-ui/core";
-import React, { useState } from "react";
 import CloseIcon from "@material-ui/icons/Close";
 import { useForm } from "react-hook-form";
+
 import DraggableMap from "./DraggableMap";
 import "./Modal.css";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    margin: 0,
-    padding: theme.spacing(2),
-  },
-  closeButton: {
-    position: "absolute",
-    right: theme.spacing(1),
-    top: theme.spacing(1),
-    color: theme.palette.grey[500],
-  },
-  form: {
-    "& .MuiTextField-root": {
-      margin: theme.spacing(1),
-      width: 200,
-    },
-  },
-}));
+import { useStyles } from "../hooks/useStyles";
 
 const Modal = (props) => {
   const classes = useStyles();
   const { register, handleSubmit, errors } = useForm();
   const [coords, setCoords] = useState([-17.7834936, -63.1820853]);
+
   const onSubmitForm = (data, e) => {
     const newPlace = { ...data, coords: coords };
     // console.log(newPlace);
@@ -46,6 +29,7 @@ const Modal = (props) => {
     props.handleClose();
     props.handleClickSnackbar();
   };
+
   const getCoords = (coords) => {
     setCoords(coords);
   };
@@ -57,7 +41,7 @@ const Modal = (props) => {
       open={props.open}
       fullWidth
     >
-      <DialogTitle id="customized-dialog-title" className={classes.root}>
+      <DialogTitle id="customized-dialog-title" className={classes.rootModal}>
         <Typography>Add new place</Typography>
         <IconButton onClick={props.handleClose} className={classes.closeButton}>
           <CloseIcon />

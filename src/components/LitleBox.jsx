@@ -6,22 +6,11 @@ import {
   CardActions,
   CardContent,
   Icon,
-  makeStyles,
   Paper,
   Typography,
 } from "@material-ui/core";
 
-const useStyles = makeStyles({
-  litleBox: {
-    backgroundColor: (props) => props.color,
-    display: "inline-block",
-    padding: "8px",
-  },
-  icono: {
-    fontSize: "45px",
-    color: "white",
-  },
-});
+import { useStyles } from "../hooks/useStyles";
 
 const LitleBox = (props) => {
   const classes = useStyles(props);
@@ -31,7 +20,7 @@ const LitleBox = (props) => {
       <CardContent>
         <Box display="flex" flexDirection="row">
           <Paper className={classes.litleBox} elevation={0}>
-            <Icon className={classes.icono}>{props.icon}</Icon>
+            <Icon className={classes.iconlitleBox}>{props.icon}</Icon>
           </Paper>
           <Box flex={1} display="flex" flexDirection="column">
             <Typography display="block" variant="overline" align="right">
@@ -44,7 +33,9 @@ const LitleBox = (props) => {
         </Box>
       </CardContent>
       <CardActions>
-        <Button size="small" color="primary">More</Button>
+        <Button size="small" color="primary">
+          More
+        </Button>
       </CardActions>
     </Card>
   );

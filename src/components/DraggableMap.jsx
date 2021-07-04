@@ -1,11 +1,13 @@
-import { makeStyles } from "@material-ui/core";
 import React, { useCallback, useMemo, useRef, useState } from "react";
+import { makeStyles } from "@material-ui/core";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import "./MapGeneral.css";
 import L from "leaflet";
 import icon from "leaflet/dist/images/marker-icon.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
+
+import "./MapGeneral.css";
+import { useStyles } from "../hooks/useStyles";
 
 let DefaultIcon = L.icon({
   iconUrl: icon,
@@ -17,17 +19,12 @@ const center = {
   lat: -17.7834936,
   lng: -63.1820853,
 };
-const useStyles = makeStyles((theme) => ({
-  mapCont: {
-    width: "100%",
-    height: "300px",
-  },
-}));
 
 function DraggableMarker(props) {
   const [draggable, setDraggable] = useState(true);
   const [position, setPosition] = useState(center);
   const markerRef = useRef(null);
+
   const eventHandlers = useMemo(
     () => ({
       dragend() {
@@ -41,6 +38,7 @@ function DraggableMarker(props) {
     }),
     []
   );
+
   const toggleDraggable = useCallback(() => {
     setDraggable((d) => !d);
   }, []);
@@ -70,7 +68,7 @@ const DraggableMap = (props) => {
       center={center}
       zoom={13}
       scrollWheelZoom={false}
-      className={classes.mapCont}
+      className={classes.mapContDraggable}
     >
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

@@ -1,11 +1,11 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import "./MapGeneral.css";
 import icon from "leaflet/dist/images/marker-icon.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
+import { useStyles } from "../hooks/useStyles";
 
 let DefaultIcon = L.icon({
   iconUrl: icon,
@@ -13,12 +13,6 @@ let DefaultIcon = L.icon({
 });
 L.Marker.prototype.options.icon = DefaultIcon;
 
-const useStyles = makeStyles((theme) => ({
-  mapCont: {
-    width: "100%",
-    height: "400px",
-  },
-}));
 // initial location on map
 const position = [-17.7865297, -63.1795071];
 // array of locations
@@ -34,16 +28,18 @@ const MapGeneral = () => {
   const classes = useStyles();
 
   return (
-    <MapContainer center={position} zoom={13} className={classes.mapCont}>
+    <MapContainer
+      center={position}
+      zoom={13}
+      className={classes.mapContMapGeneral}
+    >
       <TileLayer
         attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
       {locations.map((item, index) => (
         <Marker position={item} key={index}>
-          <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.{index}
-          </Popup>
+          <Popup>here!</Popup>
         </Marker>
       ))}
     </MapContainer>

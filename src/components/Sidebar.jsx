@@ -5,35 +5,11 @@ import {
   Divider,
   Drawer,
   Link,
-  makeStyles,
   Typography,
 } from "@material-ui/core";
-import Links from "./Links";
 
-const useStyles = makeStyles((theme) => ({
-  drawer: {
-    width: 240,
-    flexShink: 0,
-  },
-  drawerPaper: {
-    width: 240,
-    background: theme.palette.primary.main,
-    color: "white",
-  },
-  toolbar: {
-    ...theme.mixins.toolbar,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  large: {
-    width: theme.spacing(22),
-    height: theme.spacing(22),
-  },
-  textWhite: {
-    color: "white",
-  },
-}));
+import Links from "./Links";
+import { useStyles } from "../hooks/useStyles";
 
 const Sidebar = (props) => {
   const classes = useStyles();
@@ -47,7 +23,7 @@ const Sidebar = (props) => {
       open={props.open}
       onClose={props.onClose ? props.onClose : null}
     >
-      <div className={classes.toolbar}>
+      <div className={classes.toolbarSidebar}>
         <Typography variant="h5">
           <Link
             href="https://github.com/kleyla"

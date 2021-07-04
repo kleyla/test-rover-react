@@ -6,44 +6,15 @@ import {
   GridListTile,
   GridListTileBar,
   IconButton,
-  makeStyles,
   Typography,
 } from "@material-ui/core";
 import InfoIcon from "@material-ui/icons/Info";
 
-const useStyles = makeStyles((theme) => ({
-  imagen: {
-    width: "100%",
-    height: "auto",
-  },
-  icon: {
-    color: "rgba(255, 255, 255, 0.54)",
-  },
-  gridList: {
-    width: "100%",
-    height: "auto",
-  },
-}));
+import { useStyles } from "../hooks/useStyles";
+import { pictures } from "../mockData/pictures";
+
 const Galeria = () => {
   const classes = useStyles();
-  const pictures = [
-    { src: "/innovaw.jpg", title: "Innova Women 2019", by: "Someone" },
-    {
-      src: "/feriaLibro.jpg",
-      title: "Feria del libro 2019, Santa Cruz, Bolivia",
-      by: "Someone",
-    },
-    {
-      src: "/flisol2019.jpg",
-      title: "FLISOL 2019, Santa Cruz, Bolivia",
-      by: "Someone",
-    },
-    {
-      src: "/hackmeetinglp2019.jpg",
-      title: "Hackmeeting 2019, La Paz, Bolivia",
-      by: "Someone",
-    },
-  ];
 
   return (
     <Grid container spacing={1}>

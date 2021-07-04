@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   Box,
   Button,
@@ -7,18 +8,17 @@ import {
   Collapse,
   Icon,
   IconButton,
-  makeStyles,
   Typography,
 } from "@material-ui/core";
-import React from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
-import { Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "leaflet/dist/leaflet.css";
 import "./MapGeneral.css";
 import L from "leaflet";
 import icon from "leaflet/dist/images/marker-icon.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
-import Mapa from "../views/Mapa";
+
+import { useStyles } from "../hooks/useStyles";
 
 let DefaultIcon = L.icon({
   iconUrl: icon,
@@ -26,35 +26,21 @@ let DefaultIcon = L.icon({
 });
 L.Marker.prototype.options.icon = DefaultIcon;
 
-const useStyles = makeStyles((theme) => ({
-  mapCont: {
-    width: "300px",
-    height: "300px",
-  },
-  mapBox: {
-    display: "flex",
-    flex: 1,
-    justifyContent: "center",
-  },
-  expand: {
-    marginLeft: "auto",
-    textDecoration: "none",
-  },
-}));
-
 const LitleMap = (props) => {
   const classes = useStyles();
-  const [checked, setChecked] = React.useState(false);
+  const [checked, setChecked] = useState(false);
+
   const handleChange = () => {
     setChecked(!checked);
   };
+
   const seeMap = (place) => {
-    console.log(place);
     props.history.push({
       pathname: "/map",
       state: place,
     });
   };
+
   return (
     <Card>
       <Collapse in={checked} collapsedHeight={250}>
@@ -69,7 +55,7 @@ const LitleMap = (props) => {
               <MapContainer
                 center={props.place.coords}
                 zoom={16}
-                className={classes.mapCont}
+                className={classes.mapContLitleMap}
               >
                 <TileLayer
                   attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'

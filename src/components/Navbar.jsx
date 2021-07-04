@@ -4,7 +4,6 @@ import {
   Button,
   Icon,
   IconButton,
-  makeStyles,
   Toolbar,
   Typography,
   withStyles,
@@ -14,29 +13,8 @@ import MenuIcon from "@material-ui/icons/Menu";
 import purple from "@material-ui/core/colors/purple";
 import { Link } from "react-router-dom";
 
-const useStyles = makeStyles((theme) => ({
-  offset: theme.mixins.toolbar,
-  menuButton: {
-    marginRight: theme.spacing(2),
-    [theme.breakpoints.up("md")]: {
-      display: "none",
-    },
-  },
-  titleLight: {
-    color: purple[200],
-  },
-  title: {
-    flexGrow: 1,
-    textDecoration: "none",
-  },
-  appBar: {
-    [theme.breakpoints.up("md")]: {
-      width: `calc(100% - ${240}px)`,
-      marginLeft: 240,
-    },
-    backgroundColor: theme.palette.common.white,
-  },
-}));
+import { useStyles } from "../hooks/useStyles";
+
 const StyledBadge = withStyles((theme) => ({
   badge: {
     right: -3,
@@ -62,7 +40,7 @@ const Navbar = (props) => {
         >
           <MenuIcon />
         </IconButton>
-        <Link to="/" className={classes.title}>
+        <Link to="/" className={classes.titleNavbar}>
           <Typography variant="h6" color="primary">
             <span className={classes.titleLight}>TEST</span>
             ROVER

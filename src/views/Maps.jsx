@@ -1,64 +1,39 @@
-import {
-  Box,
-  Button,
-  Grid,
-  makeStyles,
-  Snackbar,
-  Typography,
-} from "@material-ui/core";
 import React, { useState } from "react";
+import { Box, Button, Grid, Snackbar, Typography } from "@material-ui/core";
+import MuiAlert from "@material-ui/lab/Alert";
+
 import LitleMap from "../components/LitleMap";
 import Modal from "../components/Modal";
-import MuiAlert from "@material-ui/lab/Alert";
+import { useStyles } from "../hooks/useStyles";
+import { initialPlaces } from "../mockData/initialPlaces";
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-const useStyles = makeStyles({
-  title: {
-    flexGrow: 1,
-  },
-});
 const Maps = () => {
   const classes = useStyles();
-  const initPlaces = [
-    {
-      title: "Plaza 24 de Septiembre, Santa Cruz Bolivia",
-      coords: [-17.7834936, -63.1820853],
-      description:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, eveniet?",
-    },
-    {
-      title: "Plaza Murillo, La Paz Bolivia",
-      coords: [-16.4957409, -68.1334839],
-      description:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, eveniet?",
-    },
-    {
-      title: "Copacabana, La Paz Bolivia",
-      coords: [-16.1629986, -69.0899133],
-      description:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea, eveniet?",
-    },
-  ];
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [places, setPlaces] = useState(initialPlaces);
+
   const [openModal, setOpenModal] = useState(false);
   const handleClickOpen = () => {
     setOpenModal(true);
   };
+
   const handleClose = () => {
     setOpenModal(false);
   };
-  const [places, setPlaces] = useState(initPlaces);
+
   const addPlace = (newPlace) => {
     console.log(newPlace);
     setPlaces([...places, newPlace]);
   };
 
-  const [openSnackbar, setOpenSnackbar] = React.useState(false);
   const handleClickSnackbar = () => {
     setOpenSnackbar(true);
   };
+
   const handleCloseSnackbar = (event, reason) => {
     if (reason === "clickaway") {
       return;
@@ -70,7 +45,7 @@ const Maps = () => {
     <Grid container spacing={2}>
       <Grid item xs={12}>
         <Box display="flex" flexDirection="row">
-          <Typography variant="subtitle1" className={classes.title}>
+          <Typography variant="subtitle1" className={classes.titleMap}>
             Maps
           </Typography>
           <Button

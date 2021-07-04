@@ -1,43 +1,13 @@
 import React from "react";
-import { Box, Grid, makeStyles, Typography } from "@material-ui/core";
-import LitleBox from "../components/LitleBox";
-import theme from "../themConfig";
-import MapGeneral from "../components/MapGeneral";
+import { Box, Grid, Typography } from "@material-ui/core";
 
-const useStyles = makeStyles({
-  title: {
-    marginBottom: "16px",
-    marginTop: "8px",
-  },
-});
+import LitleBox from "../components/LitleBox";
+import MapGeneral from "../components/MapGeneral";
+import { useStyles } from "../hooks/useStyles";
+import { boxes } from "../mockData/boxes";
+
 const Home = () => {
   const classes = useStyles();
-  const cajitas = [
-    {
-      icon: "folder",
-      text: "Files",
-      cantidad: 34,
-      color: theme.palette.secondary.main,
-    },
-    {
-      icon: "account_balance",
-      text: "Places",
-      cantidad: 20,
-      color: theme.palette.info.main,
-    },
-    {
-      icon: "assignment_ind",
-      text: "Assigments",
-      cantidad: 10,
-      color: theme.palette.success.main,
-    },
-    {
-      icon: "calendar_today",
-      text: "Calendar",
-      cantidad: 12,
-      color: theme.palette.error.main,
-    },
-  ];
 
   return (
     <div>
@@ -47,7 +17,7 @@ const Home = () => {
             <Typography variant="subtitle1">Home</Typography>
           </Box>
         </Grid>
-        {cajitas.map((cajita, index) => {
+        {boxes.map((cajita, index) => {
           return (
             <Grid item xs={12} sm={6} md={3} key={index}>
               <LitleBox

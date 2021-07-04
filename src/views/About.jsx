@@ -1,5 +1,6 @@
-import { Box, Divider, Grid, Typography } from "@material-ui/core";
 import React from "react";
+import { Box, Divider, Grid, Typography } from "@material-ui/core";
+
 import AboutMe from "../components/AboutMe";
 import Galeria from "../components/Galeria";
 import Footer from "../components/Footer";

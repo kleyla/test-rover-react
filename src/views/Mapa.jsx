@@ -1,6 +1,7 @@
-import { Box, Typography } from "@material-ui/core";
 import React from "react";
+import { Box, Typography } from "@material-ui/core";
 import { useParams } from "react-router-dom";
+
 import BigMapa from "../components/BigMapa";
 
 const Mapa = () => {

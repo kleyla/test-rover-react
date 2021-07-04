@@ -13,6 +13,10 @@ import { useStyles } from "../hooks/useStyles";
 
 const Sidebar = (props) => {
   const classes = useStyles();
+  const picProfile = {
+    width: "176px",
+    height: "176px",
+  };
 
   return (
     <Drawer
@@ -37,9 +41,10 @@ const Sidebar = (props) => {
       </div>
       <Box display="flex" justifyContent="center" py={2}>
         <Avatar
-          alt="Karen pic"
+          alt="Karen picture"
           src={`${process.env.PUBLIC_URL}/me1.jpg`}
-          className={classes.large}
+          // className={classes.large} not working in production
+          style={picProfile}
         />
       </Box>
       <Divider />

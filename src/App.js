@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Hidden, ThemeProvider, makeStyles } from "@material-ui/core";
+import { Hidden, ThemeProvider } from "@material-ui/core";
 import { HashRouter } from "react-router-dom";
 
 import Navbar from "./components/Navbar";

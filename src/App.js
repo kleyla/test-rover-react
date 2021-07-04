@@ -1,35 +1,18 @@
 import React, { useState } from "react";
 import { Hidden, ThemeProvider, makeStyles } from "@material-ui/core";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  HashRouter,
-} from "react-router-dom";
+import { HashRouter } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import theme from "./themConfig";
-import Home from "./views/Home";
-import About from "./views/About";
-import Maps from "./views/Maps";
-import Mapa from "./views/Mapa";
 
-const useStyles = makeStyles({
-  root: {
-    display: "flex",
-  },
-  toolbar: theme.mixins.toolbar,
-  content: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.default,
-    padding: theme.spacing(3),
-    background: "red",
-  },
-});
+import { useStyles } from "./hooks/useStyles";
+import { AppRouter } from "./router/AppRouter";
 
 const App = () => {
   const classes = useStyles();
   const [abrir, setAbrir] = useState(false);
+
   const accionAbrir = () => {
     setAbrir(!abrir);
   };
@@ -47,12 +30,7 @@ const App = () => {
           </Hidden>
           <div className={classes.content}>
             <div className={classes.toolbar}></div>
-            <Switch>
-              <Route path="/" exact component={Home} />
-              <Route path="/about" component={About} />
-              <Route path="/maps" component={Maps} />
-              <Route path="/map/:title/:lat/:lng" component={Mapa} />
-            </Switch>
+            <AppRouter />
           </div>
         </div>
       </HashRouter>
